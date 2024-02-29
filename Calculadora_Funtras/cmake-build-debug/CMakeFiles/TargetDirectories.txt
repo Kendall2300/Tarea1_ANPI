@@ -1,0 +1,3 @@
+C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/Calculadora_Funtras.dir
+C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/rebuild_cache.dir

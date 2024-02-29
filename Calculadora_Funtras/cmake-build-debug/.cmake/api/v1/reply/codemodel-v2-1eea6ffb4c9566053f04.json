@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Calculadora_Funtras",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Calculadora_Funtras::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Calculadora_Funtras-Debug-4a54a3cfe628f8e44c3c.json",
+					"name" : "Calculadora_Funtras",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug",
+		"source" : "C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
