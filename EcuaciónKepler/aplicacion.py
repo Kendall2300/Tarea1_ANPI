@@ -4,6 +4,6 @@ E = es la anomalía excéntrica
 e = es la excentricidad de la elipse
 M = es la anomalía media
 '''
-Ecuacion = "M = E - e*sin(E)"
+Ecuacion = "E - (0.5) * math.sin(E) - (math.pi)"
 
 print(Ecuacion)
