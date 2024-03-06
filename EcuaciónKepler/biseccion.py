@@ -6,8 +6,9 @@ Aproximación del cero en la ecuación de kepler representado por la variable ke
 Estructura: xk, error, k = biseccion(a,b,M,e,tol,iterMax)
 
 Parametros: a,b = intervalo [a,b] para encontrar el cero
-            M = representa la ecuación de kepler
-            e = es un intervalo de valor [0,1]
+            func = representa la ecuación de kepler
+            e = excentricidad en un intervalo de valor [0,1]
+            M = anomalía media valores diferentes a cero
             tol = tolerancia de la aproximación
             iterMax = iteraciones máximas a realizar
 
@@ -15,13 +16,14 @@ Parametros: a,b = intervalo [a,b] para encontrar el cero
             error = error del método dado por |M(xk)|
             k = iteraciones realizadas
 
-Ejemplo: xk, error, k = biseccion(2,5,'E - e * math.sin(E) - M',0.5,1e-10,1000)
+Ejemplo: E, error, k = biseccion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
 '''
 
-def biseccion(a,b,M,e,tol,iterMax):
+def biseccion(a,b,func,e,M,tol,iterMax):
     # usar lambda para evaluar E en la función M
-    func_e = M.replace('e', str(e))
-    f = lambda E: eval(func_e)
+    func_e = func.replace('e', str(e))
+    func_m = func_e.replace('M', str(M))
+    f = lambda E: eval(func_m)
 
     if f(a) * f(b) > 0:
         print("No cumple con el Teorema de Bolzano")
@@ -47,7 +49,7 @@ def biseccion(a,b,M,e,tol,iterMax):
         return E, error, k
 
 print("Metodo de Bisección\n")
-E, error, k = biseccion(0,math.pi,'E - e * math.sin(E)',0.5,1e-10,1000)
+E, error, k = biseccion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
 print("\nEl valor de la ecuación de Kepler: ", E)
 print("\nEl error generado es: ", error)
 print("\nLas iteraciones realizadas: ", k)
