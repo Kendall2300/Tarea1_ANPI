@@ -31,26 +31,26 @@ def falsa_posicion(a,b,func,e,M,tol,iterMax):
     else:
         k = 1
         while k < iterMax:
-            E = b - ((f(b) * (a - b)) / (f(a) - f(b)))
-            if f(a) * f(E) < 0:
-                b = E
+            xk = b - ((f(b) * (a - b)) / (f(a) - f(b)))
+            if f(a) * f(xk) < 0:
+                b = xk
             else:
-                a = E
+                a = xk
             
             # Error generado
-            error = abs(f(E))
+            error = abs(f(xk))
             if error < tol:
                 break
 
             # Incremento de k
             k += 1
         
-        return E, error, k
+        return xk, error, k
 
 print("Método de la falsa posición\n")
 
-E, error, k = falsa_posicion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
+xk, error, k = falsa_posicion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
 
-print("\nEl valor de la ecuación de Kepler: ", E)
+print("\nEl valor de la ecuación de Kepler: ", xk)
 print("\nEl error generado es: ", error)
 print("\nLas iteraciones realizadas: ", k, "\n")
