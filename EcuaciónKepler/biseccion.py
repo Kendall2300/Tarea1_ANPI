@@ -3,7 +3,7 @@ import math
 '''
 Aproximación del cero en la ecuación de kepler representado por la variable kepler
 
-Estructura: xk, error, k = biseccion(a,b,M,e,tol,iterMax)
+Estructura: xk, error, k = biseccion(a,b,func,e,M,tol,iterMax)
 
 Parametros: a,b = intervalo [a,b] para encontrar el cero
             func = representa la ecuación de kepler
@@ -49,7 +49,8 @@ def biseccion(a,b,func,e,M,tol,iterMax):
         return E, error, k
 
 print("Metodo de Bisección\n")
-E, error, k = biseccion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
+#E, error, k = biseccion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
+E, error, k = biseccion(-5,10,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
 print("\nEl valor de la ecuación de Kepler: ", E)
 print("\nEl error generado es: ", error)
 print("\nLas iteraciones realizadas: ", k)
