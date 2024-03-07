@@ -25,32 +25,39 @@ def biseccion(a,b,func,e,M,tol,iterMax):
     func_m = func_e.replace('M', str(M))
     f = lambda E: eval(func_m)
 
-    if f(a) * f(b) > 0:
-        print("No cumple con el Teorema de Bolzano")
-        return None, None, None
-    else:
-        k = 1
-        while k < iterMax:
-            E = (a+b)/2
-
-            if f(a) * f(E) <0:
-                b = E
+    if M != 0:
+        if e >= 0 and e < 1:
+            if f(a) * f(b) > 0:
+                print("No cumple con el Teorema de Bolzano")
+                return None, None, None
             else:
-                a = E
-            
+                k = 1
+                while k < iterMax:
+                    E = (a+b)/2
 
-            # Error generado
-            error = abs(f(E))
-            if error < tol:
-                break
-            # Incremento de k
-            k += 1
+                    if f(a) * f(E) <0:
+                        b = E
+                    else:
+                        a = E
+                    
 
-        return E, error, k
+                    # Error generado
+                    error = abs(f(E))
+                    if error < tol:
+                        break
+                    # Incremento de k
+                    k += 1
 
-print("Metodo de Bisección\n")
-#E, error, k = biseccion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
-E, error, k = biseccion(-5,10,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
-print("\nEl valor de la ecuación de Kepler: ", E)
-print("\nEl error generado es: ", error)
-print("\nLas iteraciones realizadas: ", k)
+                return E, error, k
+        else:
+            print("El valor de e debe ser igual o mayor a 0 o menor 1")
+            return None, None, None
+    else:
+        print("M debe ser distinto de cero")
+        return None, None, None 
+# print("Metodo de Bisección\n")
+# #E, error, k = biseccion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
+# E, error, k = biseccion(-5,10,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
+# print("\nEl valor de la ecuación de Kepler: ", E)
+# print("\nEl error generado es: ", error)
+# print("\nLas iteraciones realizadas: ", k)

@@ -1,48 +1,66 @@
+from sympy import sympify, diff, symbols
 from sympy import *
 
-def jarratt(x0, func, e, M, tol, iterMax):
-    E = Symbol('E')
-    func_e = func.replace('e', str(e))
-    func_M = func_e.replace('M', str(M))
+'''
+Aproximación del cero en la ecuación de Kepler usando el método de potra-ptak
+Estructura: xk, error, k = potra_ptak(x0,func,e,M,tol,iterMax)
+Parametros: x0: valor de la aproximación de la n-estimación
+            func = representa la ecuación de kepler
+            e = excentricidad en un intervalo de valor [0,1]
+            M = anomalía media valores diferentes a cero
+            tol = tolerancia de la aproximación
+            iterMax = iteraciones máximas a realizar
 
-    # Definición de la función y su derivada
-    f = lambda E: eval(func_M)
-    expresion = func_M.replace('','')
-    print(expresion)
-    # Simplify the expression before differentiation
-    fd = expresion.diff(E)  # Calcula la derivada de f respecto a E
-    print(fd)
+            xk = aproximación realizada 
+            error = error del método dado por |func(xk)|
+            k = iteraciones realizadas 
 
+Ejemplo: xk, error, k = potra_ptak(1,'x - e * sin(x) - M',0.5,pi,1e-10,1000)
+ACLARACIÓN: Al usar la librería sympy, no despeja la E en la ecuación por lo tanto
+            se remplazó por una x
+'''
 
-    expresion_con_comillas = "'E - e * sin(E) - M'"
-    expresion_sin_comillas = expresion_con_comillas.replace("'", "")
-
-
-    xk = x0
-    k = 1
-
-    while k < iterMax:
-        if fd.subs(E, xk) != 0:
-            zk = xk - (2 / 3) * (f(xk) / fd.subs(E, xk))
-            xk = xk - (1 / 2) * (f(xk) / fd.subs(E, xk)) * (
-                        (3 * fd.subs(E, zk) + fd.subs(E, xk)) /
-                        (3 * fd.subs(E, zk) - fd.subs(E, xk)))
+def potra_ptak(x0, func, e, M, tol, iterMax):
+    func_e = func.replace('e',str(e))
+    func_m = func_e.replace('M',str(M))
+    # Pasar de string a una expresion
+    f = sympify(func_m)
+    # Implementa la derivación de la función f
+    x = symbols('x')
+    fd = diff(f,x)
+    
+    if M.evalf() != 0:
+        if e >= 0 and e < 1:
+            xk = x0
+            if fd.subs(x,xk).evalf() != 0:
+                k = 0 #Iniciar la k en 0
+                while k < iterMax:
+                    zk = xk - f.subs(x, xk).evalf() / fd.subs(x, xk).evalf()
+                    xk_nuevo = xk - (f.subs(x, xk).evalf() + f.subs(x, zk).evalf()) / fd.subs(x, xk).evalf()
+                    error = abs(f.subs(x, xk_nuevo).evalf())
+                    if error < tol:
+                        break
+                
+                    xk = xk_nuevo
+                        
+                    k += 1                                        
+                            
+                return xk, error, k 
+            else:
+                print("La derivada no cumple el método de potra-ptak")
+                return None, None, None
         else:
-            print("La derivada de la función no cumple con el método de Jarrat")
+            print("El valor de e debe ser igual o mayor a 0 o menor 1")
             return None, None, None
+    else:
+        print("M debe ser distinto de cero")
+        return None, None, None            
 
-        error = abs(f(xk))
-        if error < tol:
-            break
-        k += 1
 
-    return xk, error, k
+# # Pruebas
+# print("Método de potra-ptak")
+# xk, error, k = potra_ptak(1, 'x - e * sin(x) - M', 5e-1, pi, 1e-10, 1000)
+# print("\nEl valor aproximado: ", xk)
+# print("\nEl error es: ", error)
+# print("\nIteraciones realizadas", k)
 
-# Ejemplo de uso
-print("Método de Jarratt\n")
-
-xk, error, k = jarratt(1, 'E - e * sin(E) - M', 0.5, pi, 1e-10, 1000)
-
-print("\nEl valor aproximado: ", xk)
-print("\nEl error es: ", error)
-print("\nIteraciones realizadas", k)

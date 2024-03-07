@@ -25,32 +25,40 @@ def falsa_posicion(a,b,func,e,M,tol,iterMax):
     func_M = func_e.replace('M',str(M))
     f = lambda E: eval(func_M)
 
-    if f(a)*f(b) > 0:
-        print("No cumple con el método de falsa posición")
-        return None, None, None
-    else:
-        k = 1
-        while k < iterMax:
-            xk = b - ((f(b) * (a - b)) / (f(a) - f(b)))
-            if f(a) * f(xk) < 0:
-                b = xk
+    if M != 0:
+        if e >= 0 and e < 1:
+            if f(a)*f(b) > 0:
+                print("No cumple con el método de falsa posición")
+                return None, None, None
             else:
-                a = xk
-            
-            # Error generado
-            error = abs(f(xk))
-            if error < tol:
-                break
+                k = 1
+                while k < iterMax:
+                    xk = b - ((f(b) * (a - b)) / (f(a) - f(b)))
+                    if f(a) * f(xk) < 0:
+                        b = xk
+                    else:
+                        a = xk
+                    
+                    # Error generado
+                    error = abs(f(xk))
+                    if error < tol:
+                        break
 
-            # Incremento de k
-            k += 1
-        
-        return xk, error, k
+                    # Incremento de k
+                    k += 1
+                
+                return xk, error, k
+        else:
+            print("El valor de e debe ser igual o mayor a 0 o menor 1")
+            return None, None, None
+    else:
+        print("M debe ser distinto de cero")
+        return None, None, None             
 
-print("Método de la falsa posición\n")
 
-xk, error, k = falsa_posicion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
+# print("Método de la falsa posición\n")
+# xk, error, k = falsa_posicion(0,math.pi,'E - e * math.sin(E) - M',0.5,math.pi,1e-10,1000)
 
-print("\nEl valor de la ecuación de Kepler: ", xk)
-print("\nEl error generado es: ", error)
-print("\nLas iteraciones realizadas: ", k, "\n")
+# print("\nEl valor de la ecuación de Kepler: ", xk)
+# print("\nEl error generado es: ", error)
+# print("\nLas iteraciones realizadas: ", k, "\n")
