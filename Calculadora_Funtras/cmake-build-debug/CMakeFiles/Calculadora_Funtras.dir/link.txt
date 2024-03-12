@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\Calculadora_Funtras.dir/objects.a
-"C:\PROGRA~1\JetBrains\CLion 2023.3.4\bin\mingw\bin\ar.exe" qc CMakeFiles\Calculadora_Funtras.dir/objects.a @CMakeFiles\Calculadora_Funtras.dir\objects1.rsp
-"C:\PROGRA~1\JetBrains\CLion 2023.3.4\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\Calculadora_Funtras.dir/objects.a -Wl,--no-whole-archive -o Calculadora_Funtras.exe -Wl,--out-implib,libCalculadora_Funtras.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Calculadora_Funtras.dir\linkLibs.rsp

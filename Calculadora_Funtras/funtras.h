@@ -344,16 +344,17 @@ namespace funtras{
      * @throw std::domain_error para valores x iguales o menores que 0
      */
     cpp_dec_float_50 asin_t(boost::multiprecision::cpp_dec_float_50 x) {
-        boost::multiprecision::cpp_dec_float_50 S_k = x;
-        boost::multiprecision::cpp_dec_float_50 S_k1 = S_k;
-        for (int i = 1; i < max_iter; ++i) {
-            S_k1 += (power_t(x, 2*i + 1) * divi_t(fact_t(2 * i + 1) * (2 * i + 1)));
-            if (abs(S_k1 - S_k) < tol) {
-                return S_k1;
+        cpp_dec_float_50 s_k = x;
+        cpp_dec_float_50 s_k1 = s_k + (divi_t(6)* power_t(x,3));
+        for (int i = 2; i < max_iter; ++i) {
+            if(abs(s_k1-s_k)<tol){
+                return s_k1;
             }
-            S_k = S_k1;
+            s_k.assign(s_k1);
+            s_k1.assign(s_k + fact_t(2 * i) * divi_t(power_t(4,i) * power_t(fact_t(i),2)
+                            * (2*i+1)) * power_t(x,2*i+1));
         }
-        throw std::domain_error("No se alcanzó la precisión deseada en la aproximación del arcoseno.");
+        return s_k1;
     }
 
 
@@ -386,32 +387,32 @@ namespace funtras{
 
         if(x>=-1 and x<=1){
             //S_k1 = -1* power_t(x,3)* divi_t(3);
-            for(int n =0; n<=max_iter;n++){
-                S_k1.assign(power_t(-1,n)* power_t(x,2*n+1)* divi_t(2*n+1));
-                if(abs(S_k1-S_k)<tol){
+            for(int n = 0; n <= max_iter;n++){
+                S_k1.assign(power_t(-1,n) * power_t(x,2*n+1) * divi_t(2*n+1));
+                if(abs(S_k1 - S_k) < tol){
                     return S_k;
                 }
                 S_k.assign(S_k1);
             }
         }
         else if(x>1){
-            for(int n =0; n<=max_iter;n++){
+            for(int n = 0; n <= max_iter;n++){
                 S_k1.assign(pi_t*divi_t(2)-(power_t(-1,n)*divi_t((2*n+1)*power_t(x,2*n+1))));
-                if(abs(S_k1-S_k)<tol){
+                if(abs(S_k1 - S_k)<tol){
                     return S_k;
                 }
                 S_k.assign(S_k1);
             }
         }else{ //x<1
             for(int n =0; n<=max_iter;n++){
-                S_k1.assign(-pi_t*divi_t(2)-(power_t(-1,n)*divi_t((2*n+1)*power_t(x,2*n+1))));
+                S_k1.assign(-(pi_t*divi_t(2))-(power_t(-1,n)*divi_t((2*n+1)*power_t(x,2*n+1))));
                 if(abs(S_k1-S_k)<tol){
                     return S_k;
                 }
                 S_k.assign(S_k1);
             }
         }
-        return 0;
+        return S_k;
     }
 
 
@@ -452,7 +453,7 @@ namespace funtras{
      * @return angulo correspondiente al valor real x
      */
     cpp_dec_float_50 acos_t(boost::multiprecision::cpp_dec_float_50 x){
-        return pi_t*divi_t(2)-asin_t(x);
+        return (pi_t* divi_t(2)) - asin_t(x);
     }
 
 }
