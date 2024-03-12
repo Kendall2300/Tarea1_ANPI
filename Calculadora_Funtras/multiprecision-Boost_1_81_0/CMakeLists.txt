@@ -8,7 +8,10 @@ cmake_minimum_required(VERSION 3.5...3.16)
 
 project(boost_multiprecision VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
 
-add_library(boost_multiprecision INTERFACE)
+add_library(boost_multiprecision INTERFACE
+        ../mainwindow.cpp
+        ../mainwindow.h
+        ../mainwindow.ui)
 add_library(Boost::multiprecision ALIAS boost_multiprecision)
 
 target_include_directories(boost_multiprecision INTERFACE include)

@@ -1,24 +1,38 @@
-cmake_minimum_required(VERSION 3.27)
-project(Calculadora_Funtras)
+cmake_minimum_required(VERSION 3.5)
+project(Calculadora_Funtras VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 
-message(STATUS "start running cmake...")
+add_subdirectory(multiprecision-Boost_1_81_0)
 
-find_package(Boost 1.84.0 COMPONENTS system filesystem REQUIRED)
+# Qt finding package para versiones Qt5 y Qt6
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-if(Boost_FOUND)
-
-    message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
-    message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
-    message(STATUS "Boost_VERSION: ${Boost_VERSION}")
-
-    include_directories(${Boost_INCLUDE_DIRS})
-
-endif()
-
-add_executable(Calculadora_Funtras main.cpp
-        funtras.cpp
+add_executable(Calculadora_Funtras
+        main.cpp
         funtras.h
-
+        mainwindow.cpp
+        mainwindow.h
+        mainwindow.ui
 )
+
+
+
+
+target_link_libraries(Calculadora_Funtras PUBLIC boost_multiprecision)
+target_link_libraries(Calculadora_Funtras PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+
+
+install(TARGETS Calculadora_Funtras
+        BUNDLE DESTINATION .
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(Calculadora_Funtras)
+endif()

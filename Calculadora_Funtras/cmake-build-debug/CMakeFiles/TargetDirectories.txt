@@ -1,3 +1,15 @@
-C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/Calculadora_Funtras.dir
-C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/Calculadora_Funtras.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/list_install_components.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/install.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/install/local.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/install/strip.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/CMakeFiles/Calculadora_Funtras_autogen.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/multiprecision-Boost_1_81_0/CMakeFiles/boost_multiprecision.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/multiprecision-Boost_1_81_0/CMakeFiles/edit_cache.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/multiprecision-Boost_1_81_0/CMakeFiles/rebuild_cache.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/multiprecision-Boost_1_81_0/CMakeFiles/list_install_components.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/multiprecision-Boost_1_81_0/CMakeFiles/install.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/multiprecision-Boost_1_81_0/CMakeFiles/install/local.dir
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/multiprecision-Boost_1_81_0/CMakeFiles/install/strip.dir

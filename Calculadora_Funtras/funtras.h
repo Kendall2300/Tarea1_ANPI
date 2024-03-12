@@ -1,5 +1,5 @@
-#ifndef CALCULADORA_FUNTRAS_FUNTRAS_H
-#define CALCULADORA_FUNTRAS_FUNTRAS_H
+#ifndef FUNTRAS_H
+#define FUNTRAS_H
 
 #include "math.h"
 #include <boost/multiprecision/cpp_dec_float.hpp>
@@ -10,48 +10,51 @@ using namespace boost::multiprecision;
 #define max_iter 2500
 #define tol 0.00000001
 
-namespace funtras{
-    cpp_dec_float_50 pi_t = cpp_dec_float_50 ("3.14159265358979323846");
 
+namespace funtras{
+    cpp_dec_float_50 pi_t=cpp_dec_float_50("3.14159265358979323846");
     /**
      * Funcion factorial de x
-     * @param: x numero al que se le desea calcular el factorial
-     * @return: el factorial de x
+     * @param: x numero al que calcular el factorial
+     * @return: factorial de x
      */
-    cpp_dec_float_50 fact_t(int x){
+    cpp_dec_float_50 fact_t(int x) {
+
         if (x<0){
-            throw std::domain_error("x debe ser mayor o al menos igual que 0");
+            throw std::domain_error("x debe ser mayor o igual a 0");
         }
-        if (x==0){
+
+        if(x==0){
             return 1;
         }
-        if (x!=1){
-            return fact_t(x-1)*x;
+        if (x != 1) {
+            return fact_t(x - 1) * x;
         } else {
             return 1;
         }
+
     }
 
-    // declaracion de power
+    // declaracion
     cpp_dec_float_50 power_t(cpp_dec_float_50 x, cpp_dec_float_50 y);
 
     /**
-     * Funcion valor inicial de divi_t
-     * Esta funcion es recusiva
+     * Funcion valor inicial de power
+     * Esta funcion es recursiva
      * @param: a
-     * @return: el resultado para la division inicial
+     * @return: resultado de la division inicial
      */
-    cpp_dec_float_50 divi_t_initial_value (cpp_dec_float_50 a){
-        cpp_dec_float_50 eps = 2.2204* pow(10,-16);
-        if(a>= fact_t(100)){
+    cpp_dec_float_50 divi_t_inital_value(cpp_dec_float_50 a) {
+        cpp_dec_float_50  eps = 2.2204*pow(10,-16);
+        if(a>=fact_t(100)){
             return 0;
-        }else if(a> fact_t(80) && a< fact_t(100)){
+        }else if(a>fact_t(80) && a<fact_t(100)){
             return power_t(eps,15);
-        }else if (a> fact_t(60) && a<= fact_t(80)){
+        }else if(a>fact_t(60) && a<=fact_t(80)){
             return power_t(eps,11);
-        }else if(a> fact_t(40) && a<= fact_t(60)){
+        }else if(a>fact_t(40) && a<=fact_t(60)){
             return power_t(eps,8);
-        }else if (a> fact_t(20) && a<= fact_t(40)){
+        }else if(a>fact_t(20) && a<=fact_t(40)){
             return power_t(eps,4);
         }else{
             return power_t(eps,2);
@@ -59,368 +62,399 @@ namespace funtras{
     }
 
     /**
-     * Funcion divi_t
-     * Esta funcion se encarga de realizar la division de x = 1/x
-     * @param x numero al que se le desea calcular el inverso
-     * @return Inverso de x
+     * Funcion division 1/x
+     * @param: x numero de tipo cpp_dec_float_50 al que calcular el inverso
+     * @return: Inverso de x
      */
-    cpp_dec_float_50 divi_t(cpp_dec_float_50 x){
-        cpp_dec_float_50 x_k = divi_t_initial_value(abs(x));
+    cpp_dec_float_50 divi_t(cpp_dec_float_50 x) {
+        cpp_dec_float_50 x_k = divi_t_inital_value(abs(x));
         cpp_dec_float_50 x_k1 = 0;
-        for(int iter=0; iter < max_iter; iter++){
-            x_k1.assign(x_k * (2-x * x_k));
-            if (abs(x_k1 - x_k) < tol * abs(x_k1)){
+        for(int iter=0;iter<max_iter;iter++){
+            x_k1.assign(x_k*(2-x*x_k));
+            if(abs(x_k1-x_k)<tol*abs(x_k1)){
                 return x_k1;
             }
             x_k.assign(x_k1);
-            if (iter == max_iter-1){
+            if(iter==max_iter-1){
                 return x_k;
             }
         }
         return x_k;
     }
 
-    //
+
+
     boost::multiprecision::cpp_dec_float_50 root_t(boost::multiprecision::cpp_dec_float_50 x, boost::multiprecision::cpp_dec_float_50 y);
     /**
-     * Funcion power_t
-     * Esta funcion se encarga de aproximar el valor de una potencia de x^y
-     * @param x El numero que se desea usar de base para elevar
-     * @param y El numero al que se desea elevar el valor de x
-     * @return result: resultado de la potencia x^y)
+     * Funcion potencia x^y
+     * @param: x, y
+     * @return: result (resultado de la potencia x^y)
      */
-    cpp_dec_float_50 power_t(cpp_dec_float_50 x,cpp_dec_float_50 y){
+    cpp_dec_float_50 power_t(cpp_dec_float_50 x, cpp_dec_float_50 y) {
+
         cpp_dec_float_50 result = 1;
-        cpp_dec_float_50 temp_y = 0;
+        cpp_dec_float_50 tempy=0;
         cpp_dec_float_50 sign = 1.0;
 
-        if (y == 0 && x != 0){
+        if(y==0 && x != 0){
             return 1;
-        } else if (x == 0){
-            return 0;
-        } else if (y == 1) {
-            return x;
-        } else if (y > 0){
-            return x;
-        }else if(y > 0){
-            while(y != 0){
-                result *= x;
-                temp_y --;
-            }
-            result = copysign(sign,result) * divi_t(abs(result));
         }
+        else if(x==0){
+            return 0;
+        }
+        else if(y ==1){
+            return x;
+        }
+        else if(y>0){
+            while(y!=0){
+                result*=x;
+                y--;
+            }
+        }
+        else if(y<0){
+            tempy = -1*y;
+            while(tempy!=0){
+                result*=x;
+                tempy--;
+            }
+            result = copysign(sign,result)* divi_t(abs(result));
+        }
+
+
+
         return result;
     }
 
+
+
     /**
-     * Funcion sin_t
-     * Se encarga de aproximar el valor del seno de un valor x
-     * @param x El valor al que se desea calcularle el seno
-     * @return aproximacion del valor de seno(x)
-     */
-    boost::multiprecision::cpp_dec_float_50 sin_t(boost::multiprecision::cpp_dec_float_50 x){
-        cpp_dec_float_50 S_k = cpp_dec_float_50 (x);
-        cpp_dec_float_50 S_k1 = cpp_dec_float_50 ("0");
+     * Funcion seno(x)
+     * @param x el valor del angulo
+     * @return aproximacion del resultado de seno(x)
+      */
+    boost::multiprecision::cpp_dec_float_50 sin_t(boost::multiprecision::cpp_dec_float_50 x) {
+        cpp_dec_float_50 S_k = cpp_dec_float_50(x);
+        cpp_dec_float_50 S_k1 = cpp_dec_float_50("0");
         S_k.assign(x);
 
         for (int iter = 0; iter < max_iter; iter++) {
+
             S_k1.assign(
-                    S_k + power_t(-1, iter + 1) *
-                    power_t(x, 2 * (iter + 1) + 1) *
-                    divi_t(fact_t(2 * (iter + 1) + 1)));
-            if (abs(S_k1 - S_k) < tol){
+                    S_k + power_t(-1, iter + 1) * power_t(x, 2 * (iter + 1) + 1) * divi_t(fact_t(2 * (iter + 1) + 1)));
+
+            if (abs(S_k1 - S_k) < tol) {
                 return S_k1;
             }
             S_k.assign(S_k1);
         }
+        return S_k1;
     }
 
     /**
-     * Funcion senh_t(x)
-     * Esta funcion se encarga de aproximar el seno hiperbolico dde un numero x
-     * @param x El numero al que se le desea calcular el seno hiperbolico
-     * @return Una aproximacion del seno hiperbolico de x
+     * Funcion seno hiperbolico de a: senh(a)
+     * @param x el valor del angulo
+     * @return aproximacion del resultado de la funcion
      */
-    cpp_dec_float_50 sinh_t(cpp_dec_float_50 x){
-        cpp_dec_float_50 S_k = x;
+    cpp_dec_float_50 sinh_t(cpp_dec_float_50 a) {
+        cpp_dec_float_50 S_k = a;
         cpp_dec_float_50 S_k1 = 0;
-        for (int iter = 1; iter < max_iter; iter++) {
-            S_k1.assign(S_k + power_t(x, 2 * iter + 1)*
-                                      divi_t(fact_t(2*iter+1)));
-            if (abs(S_k1 - S_k) < tol){
+        for(int iter=1;iter<max_iter;iter++){
+            S_k1.assign(S_k+ power_t(a,2*iter+1)* divi_t(fact_t(2*iter+1)));
+            if(abs(S_k1-S_k)<tol){
                 return S_k1;
             }
             S_k.assign(S_k1);
         }
+        return S_k1;
     }
 
     /**
-     * Funcion cos_t(x)
-     * Esta funcion se encarga de aproximar el valor del coseno de un numero
-     * @param x El valor del angulo al que se desea calcular el coseno
-     * @return aproximacion del valor del angulo proporcionado
-     */
-    boost::multiprecision::cpp_dec_float_50 cos_t(boost::multiprecision::cpp_dec_float_50 x){
-        cpp_dec_float_50 s_k = cpp_dec_float_50 ("0");
-        cpp_dec_float_50 s_k1 = cpp_dec_float_50 ("0");
-        s_k.assign(1);
+      * Funcion coseno de x: cos(x)
+      * @param x el valor del angulo
+      * @return aproximacion de la funcion cos(x)
+        */
+    boost::multiprecision::cpp_dec_float_50 cos_t(boost::multiprecision::cpp_dec_float_50 x) {
+        cpp_dec_float_50 S_k = cpp_dec_float_50("0");
+        cpp_dec_float_50 S_k1 = cpp_dec_float_50("0");
+        S_k.assign(1);
 
         for (int iter = 0; iter < max_iter; iter++) {
-            s_k1.assign(s_k + power_t(-1, iter+1) *
-                                      power_t(x, 2 * (iter + 1)) *
-                                      divi_t(fact_t(2 * (iter + 1))));
-            if (abs(s_k1 - s_k) < tol){
-                return s_k1;
+            S_k1.assign(S_k + power_t(-1, iter + 1) * power_t(x, 2 * (iter + 1)) * divi_t(fact_t(2 * (iter + 1))));
+            if (abs(S_k1 - S_k) < tol) {
+                return S_k1;
             }
-            s_k.assign(s_k1);
+            S_k.assign(S_k1);
         }
+        return S_k1;
     }
 
-    /**
-     * Funcion cosh_t(a)
-     * Esta funcion se encarga de aproximar el valor de un coseno hiperbolico
-     * @param a el valor del angulo al que se desea calcular el coseno hiperbolico
-     * @return aproximacion del resultado de coseno hiperbolico del angulo dado
-     */
-    cpp_dec_float_50 cosh_t(cpp_dec_float_50 a){
-        cpp_dec_float_50 s_k = 1;
-        cpp_dec_float_50 s_k1 = 0;
 
-        for (int iter = 1; iter < max_iter; ++iter) {
-            s_k1.assign(s_k + power_t(a, 2 * iter) *
-                                      divi_t(fact_t(2 * iter)));
-            if (abs(s_k1 - s_k) < tol){
-                return s_k1;
+    /**
+     * Funcion coseno hiperbolico de a : cosh(a)
+     * @param x el valor del angulo
+     * @return aproximacion de la funcion cosh(a)
+     */
+    cpp_dec_float_50 cosh_t(cpp_dec_float_50 a) {
+        cpp_dec_float_50 S_k = 1;
+        cpp_dec_float_50 S_k1 = 0;
+        for(int iter=1;iter<max_iter;iter++){
+            S_k1.assign(S_k+ power_t(a,2*iter)* divi_t(fact_t(2*iter)));
+            if(abs(S_k1-S_k)<tol){
+                return S_k1;
             }
-            s_k.assign(s_k1);
+            S_k.assign(S_k1);
         }
+        return S_k1;
     }
 
-    /**
-     * Funcion tanh_t(x)
-     * Esta funcion se encarga de aproximar el valor de la tangente hiperbolica de un angulo dado
-     * @param x El angulo al que se desea aproximar el valor de la tangente hiperbolica
-     * @return La aproximacion de la tangente hiperbolica del angulo dado.
-     */
-    cpp_dec_float_50 tanh_t(cpp_dec_float_50 x){
-        return sinh_t(x) * power_t(cosh(x),-1);
+    /***
+    * Funcion tangente hiperbolica de x : tanh(x)
+    * @param x el valor del angulo
+    * @return aproximacion de la funcion tanh(x)
+    */
+    boost::multiprecision::cpp_dec_float_50 tanh_t(boost::multiprecision::cpp_dec_float_50 x) {
+        return sinh_t(x) * power_t(cosh(x),-1); // tanh(x) = sinh(x)/cosh(x)
     }
 
-    /**
-     * Funcion sec_t (a)
-     * Esta funcion se encarga de aproximar el valor de la secante de un angulo dado
-     * @param a El angulo al que se desea buscar la secante
-     * @return El valor aproximado de la secante del angulo dado
+    /***
+     * Funcion secante de a : sec(a)
+     * @param x el valor del angulo
+     * @return aproximacion de la funcion sec(a)
      */
-    cpp_dec_float_50 sec_t(cpp_dec_float_50 a){
-        return power_t(cos_t(a),-1);
+    cpp_dec_float_50 sec_t(cpp_dec_float_50 a) {
+        cpp_dec_float_50 cos_a = cos_t(a);
+
+        // Verifica si el coseno es cero o muy cercano a cero
+        if (abs(cos_a) < tol) {
+            throw std::domain_error("El ángulo produce una secante indefinida.");
+        }
+
+        // Calcula el recíproco del coseno
+        return 1 / cos_a;
     }
 
-    /**
-     * Funcion tan_t(a)
-     * Esta funcion se encarga de aproximar el valor de la tangente de un angulo dado
-     * @param a El angulo al que se desea calcular la tangente.
-     * @return Aproximacion del valor de la tangente del angulo dado
-     */
-    cpp_dec_float_50 tan_t(cpp_dec_float_50 a){
-        return sin_t(a) * divi_t(cos_t(a));
-    }
+
+    // declaracion
+    cpp_dec_float_50 tan_t(cpp_dec_float_50 a);
 
     /**
-     * Funcion cot_t(a)
-     * Esta funcion se encarga de aproximar el valor de la cotangente de un angulo
-     * @param a El angulo al que se le desea encontrar la cotangente
-     * @return Una aproximacion de del valor de cotangente del angulo dado
+     * Funcion cotangente de a : cot(a)
+     * @param x el valor del angulo
+     * @return aproximacion de la funcion cot(a)
      */
-    cpp_dec_float_50 cot_t(cpp_dec_float_50 a){
+    cpp_dec_float_50 cot_t(cpp_dec_float_50 a) {
         return power_t(tan_t(a),-1);
     }
 
     /**
-     * Funcion ln_t(x)
-     * Esta funcion se encarga de aproximar el valor del logaritmo natural de un valor x
-     * @param x El numero al que se le quiere buscar el logaritmo natural.
-     * @return Una aproximacion del valor del logaritmo natural de x
+     * Funcion tangente de x : tan(x)
+     * @param: x el valor del angulo del que se obtendra la tangente
+     * @return: la tangente de x
      */
-    cpp_dec_float_50 ln_t(cpp_dec_float_50 x){
-        if (x <= 0){
-            throw std::domain_error("x debe ser mayor a 0");
-        }
-        cpp_dec_float_50 s_c = 2 * (x-1) * divi_t(x+1);
-        cpp_dec_float_50 s_k = 1;
-        cpp_dec_float_50 s_k1 = s_k + (divi_t(3) * power_t(x-1, 2));
+    cpp_dec_float_50 tan_t(cpp_dec_float_50 x) {
+        cpp_dec_float_50 cos_x = cos_t(x);
 
-        for (int i = 2; i < max_iter; ++i) {
-            if (abs(s_k1-s_k) < tol){
-                return s_c * s_k1;
-            }
-            s_k.assign(s_k1);
-            s_k1.assign((s_k + (divi_t(2 * i + 1) *
-                                power_t(((x-1) * divi_t(x+1)), 2*i))));
+        // Verifica si el coseno es cero o muy cercano a cero
+        if (abs(cos_x) < tol) {
+            throw std::domain_error("El ángulo produce una tangente indefinida.");
         }
-        return s_k1;
+
+        // Calcula la tangente
+        return sin_t(x) * divi_t(cos_x);
+    }
+
+
+
+    /**
+     * Funcion logaritmo natural de x : ln(x)
+     * @param x valor del que se obtendra el logaritmo
+     * @return logaritmo natural de x
+     * @throw std::domain_error para valores x iguales o menores que 0
+     */
+    cpp_dec_float_50 ln_t(boost::multiprecision::cpp_dec_float_50 x) {
+        if (x <= 0) {
+            throw std::domain_error(" x debe ser mayor a 0");
+        }
+        boost::multiprecision::cpp_dec_float_50 S_c = 2 * (x - 1) * divi_t(x + 1);
+        boost::multiprecision::cpp_dec_float_50 S_k = 1;
+        boost::multiprecision::cpp_dec_float_50 S_k1 = S_k + (divi_t(3) * power_t((x - 1) * divi_t(x + 1), 2));
+        for (int i = 2; i < max_iter; ++i) {
+            if (abs(S_k1 - S_k) < tol) {
+                return S_c * S_k1;
+            }
+            S_k.assign(S_k1);
+            S_k1.assign(S_k + (divi_t(2 * i + 1) * power_t(((x - 1) * divi_t(x + 1)), 2 * i)));
+        }
+        return S_k1;
     }
 
     /**
-     * Funcion root_t(x,y)
-     * Esta funcion se encarga de calcular la raiz y-esima de un numero x
-     * @param x El valor al que se le desea calcular la raiz
-     * @param y El grado de la raiz
-     * @return Una aproximacion del valor de la raiz calculada
+     * Funcion raiz y-esima : x^(1/y)
+     * @param x el valor al que se le calculara la raiz
+     * @param y el grado de la raiz
+     * @throw std::domain_error para valor x menores que 0
+     * @throw std::domain_error para y pares con x negativos
      */
-    cpp_dec_float_50 root_t(cpp_dec_float_50 x, cpp_dec_float_50 y){
-        if (x < 0){
-            throw std::domain_error("x debe ser mayor o igual a 0");
+    boost::multiprecision::cpp_dec_float_50
+    root_t(boost::multiprecision::cpp_dec_float_50 x, boost::multiprecision::cpp_dec_float_50 y) {
+        if (x < 0) {
+            throw std::domain_error(" x debe ser mayor o igual a 0");
         }
-        if (y < 0){
-            return power_t(x,y);
+        if (y < 0) {
+            return power_t(x, y);
         }
-        if (floor(y) == y){
-            if (y < 2){
+        if (floor(y) == y) {
+            //Es entero
+            if (y < 2) {
                 return x;
             }
             if (y.convert_to<int>() % 2 == 0 && x < 0) {
-                throw std::domain_error("x debe ser mayor o igual a 0");
+                throw std::domain_error(" x debe ser mayor o igual a 0");
             }
-            cpp_dec_float_50 s_k = x * 0.5;
-            cpp_dec_float_50 s_k1 = s_k - (power_t(s_k, y) - x) * divi_t(y * power_t(s_k, y - 1));
+            boost::multiprecision::cpp_dec_float_50 S_k = x * 0.5;
+            boost::multiprecision::cpp_dec_float_50 S_k1 =
+                    S_k - (power_t(S_k, y) - x) * divi_t(y * power_t(S_k, y - 1));
             for (int i = 2; i < max_iter; ++i) {
-                if (abs(s_k1 - s_k) < tol * abs(s_k1)){
-                    return s_k1;
+                if (abs(S_k1 - S_k) < tol * abs(S_k1)) {
+                    return S_k1;
                 }
-                s_k.assign(s_k1);
-                s_k1.assign(s_k - (power_t(s_k,y) - x) * divi_t(y * power_t(s_k, y-1)));
+                S_k.assign(S_k1);
+                S_k1.assign(S_k - (power_t(S_k, y) - x) * divi_t(y * power_t(S_k, y - 1)));
             }
-            return s_k1;
-        }else {
-            return power_t(x,y);
+            return S_k1;
+        } else {
+            return funtras::power_t(x, y);
         }
     }
 
     /**
-     * Funcion raiz cuadrada de x
-     * Esta funcion se encarga de llamar a la funcion de raiz de t que puede aproximar este caso tambien
-     * @param x El numero al que se le busca la raiz cuadrada
-     * @return Una aproximacion del valor de la raiz cuadrada de x
+     * Funcion raiz cuadrada de x : x^(1/2)
+     * @param x
+     * @return aproximacion de la sqrt(x)
      */
-    cpp_dec_float_50 sqrt_t(cpp_dec_float_50 x){
-        return root_t(x,2);
+    boost::multiprecision::cpp_dec_float_50 sqrt_t(boost::multiprecision::cpp_dec_float_50 x) {
+        return root_t(x, 2); // se invoca a una funcion existente con indice 2
     }
 
+
     /**
-     * Funcion arcoseno de x arcsen(x)
-     * @param x valor del angulo al que se le desea calcular el arcosen
-     * @return aproximacion del arcoseno del angulo x
+     * Funcion arcoseno de x : arcsen(x)
+     * @param x valor del angulo del que se le calculara el arcoseno
+     * @return aproximacion del arcoseno de x (un angulo)
+     * @throw std::domain_error para valores x iguales o menores que 0
      */
-    cpp_dec_float_50 asin_t(cpp_dec_float_50 x){
-        cpp_dec_float_50 s_k = x;
-        cpp_dec_float_50  s_k1 = s_k + (divi_t(6) * power_t(x, 3));
-        for (int i = 2; i < max_iter; ++i) {
-            if (abs(s_k1 - s_k) < tol){
-                return s_k1;
+    cpp_dec_float_50 asin_t(boost::multiprecision::cpp_dec_float_50 x) {
+        boost::multiprecision::cpp_dec_float_50 S_k = x;
+        boost::multiprecision::cpp_dec_float_50 S_k1 = S_k;
+        for (int i = 1; i < max_iter; ++i) {
+            S_k1 += (power_t(x, 2*i + 1) * divi_t(fact_t(2 * i + 1) * (2 * i + 1)));
+            if (abs(S_k1 - S_k) < tol) {
+                return S_k1;
             }
-            s_k.assign(s_k1);
-            s_k1.assign(s_k + fact_t(2*i) * divi_t(power_t(4,i) * power_t(fact_t(i),2) * (2*i+1)) *
-                                      power_t(x,2*i+1));
+            S_k = S_k1;
         }
-        return s_k1;
+        throw std::domain_error("No se alcanzó la precisión deseada en la aproximación del arcoseno.");
     }
 
+
     /**
-     * Funcion exp_t(a)
-     * Esta funcion aproxima el valor de e^a
-     * @param a El valor al que se desea elevar euler
-     * @return La aproximacion del valor de euler a la a
+     * Funcion exponencial e^a
+     * @param a exponente para e
+     * @return aproximacion de la funcion exponencial
      */
     cpp_dec_float_50 exp_t(cpp_dec_float_50 a){
-        cpp_dec_float_50 s_k = 1;
-        cpp_dec_float_50 s_k1 = 0;
-        for (int i = 1; i < max_iter; ++i) {
-            s_k1.assign(s_k + power_t(a,i) * divi_t(fact_t(i)));
-            if (abs(s_k1-s_k) < tol){
-                return s_k1;
+        cpp_dec_float_50 S_k = 1;
+        cpp_dec_float_50 S_k1 = 0;
+        for(int iter=1;iter<max_iter;iter++){
+            S_k1.assign(S_k+power_t(a,iter)* divi_t(fact_t(iter)));
+            if(abs(S_k1-S_k)<tol){
+                return S_k1;
             }
-            s_k.assign(s_k1);
+            S_k.assign(S_k1);
         }
+        return 0;
     }
 
     /**
-     * Funcion atan_t(x)
-     * Esta funcion se encarga de aproximar el valor de la arcotyangente de un angulo x
-     * @param x El valor del angulo
-     * @return aproximacion del valor de la arcotangente del angulo x
+     * Funcion arcotangente de x : arctan(x)
+     * @param x valor por calcularle el atan_t
+     * @return aproximacion del angulo que devolveria la funcion arctan
      */
-    cpp_dec_float_50 atan_t(cpp_dec_float_50 x){
-        cpp_dec_float_50 s_k = x;
-        cpp_dec_float_50 s_k1 = 0;
+    cpp_dec_float_50 atan_t(boost::multiprecision::cpp_dec_float_50 x){
+        cpp_dec_float_50 S_k = x;
+        cpp_dec_float_50 S_k1 = 0;
 
-        if (x>=-1 and x<=1){
-            for (int n = 0; n < max_iter; ++n) {
-                s_k1.assign(power_t(-1,n)* power_t(x,2*n+1)* divi_t(2*n+1));
-                if (abs(s_k1-s_k)<tol){
-                    return s_k;
+        if(x>=-1 and x<=1){
+            //S_k1 = -1* power_t(x,3)* divi_t(3);
+            for(int n =0; n<=max_iter;n++){
+                S_k1.assign(power_t(-1,n)* power_t(x,2*n+1)* divi_t(2*n+1));
+                if(abs(S_k1-S_k)<tol){
+                    return S_k;
                 }
-                s_k.assign(s_k1);
-            }
-        }else if (x>1){
-            for (int n = 0; n < max_iter; ++n) {
-                s_k1.assign(pi_t* divi_t(2)-(power_t(-1,n)* divi_t((2*n+1)* power_t(x,2*n+1))));
-                if (abs(s_k1-s_k)<tol){
-                    return s_k;
-                }
-            }
-            s_k.assign(s_k1);
-        }else{
-            for (int n = 0; n < max_iter; ++n) {
-                s_k1.assign(-pi_t* divi_t(2)- (power_t(-1,n)* divi_t((2*n+1)* power_t(x,2*n+1))));
-                if (abs(s_k1-s_k)<tol){
-                    return s_k;
-                }
-                s_k.assign(s_k1);
+                S_k.assign(S_k1);
             }
         }
+        else if(x>1){
+            for(int n =0; n<=max_iter;n++){
+                S_k1.assign(pi_t*divi_t(2)-(power_t(-1,n)*divi_t((2*n+1)*power_t(x,2*n+1))));
+                if(abs(S_k1-S_k)<tol){
+                    return S_k;
+                }
+                S_k.assign(S_k1);
+            }
+        }else{ //x<1
+            for(int n =0; n<=max_iter;n++){
+                S_k1.assign(-pi_t*divi_t(2)-(power_t(-1,n)*divi_t((2*n+1)*power_t(x,2*n+1))));
+                if(abs(S_k1-S_k)<tol){
+                    return S_k;
+                }
+                S_k.assign(S_k1);
+            }
+        }
+        return 0;
     }
 
+
+
     /**
-     * Funcion log_t(x,y)
-     * Esta funcion calcula el logaritmo en cualquier base de x
+     * Funcion logaritmo en cualquier base de x
+     * Utiliza cambio de base
      * @param x
      * @param y
-     * @return Aproximacion del logaritmo en base de x
+     * @return aproximacion del logaritmo solicitado
      */
-    cpp_dec_float_50 log_t(cpp_dec_float_50 x, cpp_dec_float_50 y){
-        if (y==1){
+    cpp_dec_float_50 log_t(boost::multiprecision::cpp_dec_float_50 x, boost::multiprecision::cpp_dec_float_50 y){
+        if(y==1)
             std::cout<<"Error";
-        }else if (x==1){
+        else if(x==1)
             return 0;
-        }
-        else if (x==y){
+        else if(x==y)
             return 1;
-        }
-        else{
-            return ln_t(x)* power_t(ln_t(y),1);
-        }
+        else
+            return ln_t(x)* power_t(ln_t(y),-1);
+
+        return 0;
+
     }
 
     /**
-     * Funcion csc_t(x)
-     * Esta funcion aproxima el cosecante de x
-     * @param x Angulo al que se desea buscarle la cosecante
-     * @return aproximacion del resultado de la cosecante de x
+     * Funcion cosecante de x : csc(x)
+     * @param x angulo para la funcion
+     * @return aproximacion del resultado de la funcion
      */
-    cpp_dec_float_50 csc_t(cpp_dec_float_50 x){
+    cpp_dec_float_50 csc_t(boost::multiprecision::cpp_dec_float_50 x){
         return power_t(sin_t(x),-1);
     }
 
     /**
-     * Funcion acos_t(x)
-     * Esta funcion aproxima el valor del arcoseno para un angulo x
-     * @param x El valor del angulo
-     * @return aproximacion del valor del arcoseno del angulo x.
+     * Funcion arcocoseno de x : arccos(x)
+     * @param x valor al cual calcularle el angulo
+     * @return angulo correspondiente al valor real x
      */
-    cpp_dec_float_50 acos_t(cpp_dec_float_50 x){
-        return pi_t* divi_t(2)- asin_t(x);
+    cpp_dec_float_50 acos_t(boost::multiprecision::cpp_dec_float_50 x){
+        return pi_t*divi_t(2)-asin_t(x);
     }
+
 }
 
-#endif
+#endif // FUNTRAS_H

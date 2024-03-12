@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/kenda/Desktop/TEC/Anpi/Repos Git/Tarea1_ANPI/Calculadora_Funtras/multiprecision-Boost_1_81_0
+# Install script for directory: C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/multiprecision-Boost_1_81_0
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
