@@ -405,24 +405,29 @@ CMakeFiles/Calculadora_Funtras.dir/Calculadora_Funtras_autogen/mocs_compilation.
   C:/Qt/6.6.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.6.2/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QGridLayout \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QMainWindow \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QMenuBar \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QRadioButton \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QScrollArea \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qapplication.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmainwindow.h \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmenu.h \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmenubar.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qradiobutton.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qstatusbar.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -885,24 +890,29 @@ CMakeFiles/Calculadora_Funtras.dir/main.cpp.obj: C:/Users/kevin/OneDrive/Escrito
   C:/Qt/6.6.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.6.2/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QGridLayout \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QMainWindow \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QMenuBar \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QRadioButton \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QScrollArea \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qapplication.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmainwindow.h \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmenu.h \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmenubar.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qradiobutton.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qstatusbar.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -1364,24 +1374,29 @@ CMakeFiles/Calculadora_Funtras.dir/mainwindow.cpp.obj: C:/Users/kevin/OneDrive/E
   C:/Qt/6.6.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.6.2/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QGridLayout \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QMainWindow \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QMenuBar \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QRadioButton \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/QScrollArea \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qapplication.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmainwindow.h \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmenu.h \
-  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmenubar.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qradiobutton.h \
+  C:/Qt/6.6.2/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qstatusbar.h \
   C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -1646,6 +1661,8 @@ C:/Qt/6.6.2/mingw_64/include/QtCore/qurl.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable_policy.h:
 
+C:/Qt/6.6.2/mingw_64/include/QtWidgets/qboxlayout.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h:
@@ -1713,6 +1730,8 @@ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32
 Calculadora_Funtras_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h:
+
+C:/Qt/6.6.2/mingw_64/include/QtWidgets/QGridLayout:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string:
 
@@ -1916,8 +1935,6 @@ C:/Qt/6.6.2/mingw_64/include/QtCore/qpair.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory:
 
-C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmenu.h:
-
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/assert.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new:
@@ -1955,8 +1972,6 @@ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/gamma.tcc:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/legendre_function.tcc:
-
-C:/Qt/6.6.2/mingw_64/include/QtWidgets/qmenubar.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/modified_bessel_func.tcc:
 
@@ -2128,8 +2143,6 @@ C:/Qt/6.6.2/mingw_64/include/QtCore/qttranslation.h:
 
 C:/Qt/6.6.2/mingw_64/include/QtCore/qarraydataops.h:
 
-C:/Qt/6.6.2/mingw_64/include/QtWidgets/QMenuBar:
-
 C:/Qt/6.6.2/mingw_64/include/QtCore/qtcoreexports.h:
 
 C:/Qt/6.6.2/mingw_64/include/QtCore/qassert.h:
@@ -2151,6 +2164,8 @@ C:/Qt/6.6.2/mingw_64/include/QtGui/qtextformat.h:
 C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearrayview.h:
 
 C:/Qt/6.6.2/mingw_64/include/QtCore/qconstructormacros.h:
+
+C:/Qt/6.6.2/mingw_64/include/QtWidgets/QScrollArea:
 
 C:/Qt/6.6.2/mingw_64/include/QtCore/qcontainerfwd.h:
 
@@ -2215,6 +2230,8 @@ C:/Qt/6.6.2/mingw_64/include/QtCore/qobject_impl.h:
 C:/Qt/6.6.2/mingw_64/include/QtCore/qobjectdefs.h:
 
 C:/Qt/6.6.2/mingw_64/include/QtCore/qobjectdefs_impl.h:
+
+C:/Qt/6.6.2/mingw_64/include/QtWidgets/qscrollarea.h:
 
 C:/Qt/6.6.2/mingw_64/include/QtCore/qoverload.h:
 
@@ -2342,9 +2359,17 @@ C:/Qt/6.6.2/mingw_64/include/QtWidgets/QStatusBar:
 
 C:/Qt/6.6.2/mingw_64/include/QtWidgets/QWidget:
 
+C:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h:
+
+C:/Qt/6.6.2/mingw_64/include/QtWidgets/qgridlayout.h:
+
 C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/multiprecision-Boost_1_81_0/include/boost/multiprecision/detail/default_ops.hpp:
 
 C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlabel.h:
+
+C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlayout.h:
+
+C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlayoutitem.h:
 
 C:/Qt/6.6.2/mingw_64/include/QtWidgets/qlineedit.h:
 
