@@ -133,6 +133,9 @@ namespace funtras{
      * @return aproximacion del resultado de seno(x)
       */
     boost::multiprecision::cpp_dec_float_50 sin_t(boost::multiprecision::cpp_dec_float_50 x) {
+        x = fmod(x, 2 * funtras::pi_t); // Ajustar el ángulo dentro del rango 0 a 2pi
+        if (x < 0) x += 2 * funtras::pi_t; // Ajustar para manejar ángulos negativos
+
         cpp_dec_float_50 S_k = cpp_dec_float_50(x);
         cpp_dec_float_50 S_k1 = cpp_dec_float_50("0");
         S_k.assign(x);
@@ -174,6 +177,9 @@ namespace funtras{
       * @return aproximacion de la funcion cos(x)
         */
     boost::multiprecision::cpp_dec_float_50 cos_t(boost::multiprecision::cpp_dec_float_50 x) {
+        x = fmod(x, 2 * funtras::pi_t); // Ajustar el ángulo dentro del rango 0 a 2pi
+        if (x < 0) x += 2 * funtras::pi_t; // Ajustar para manejar ángulos negativos
+
         cpp_dec_float_50 S_k = cpp_dec_float_50("0");
         cpp_dec_float_50 S_k1 = cpp_dec_float_50("0");
         S_k.assign(1);
@@ -252,6 +258,8 @@ namespace funtras{
      * @return: la tangente de x
      */
     cpp_dec_float_50 tan_t(cpp_dec_float_50 x) {
+        x = fmod(x, 2 * funtras::pi_t); // Ajustar el ángulo dentro del rango 0 a 2pi
+        if (x < 0) x += 2 * funtras::pi_t; // Ajustar para manejar ángulos negativos
         cpp_dec_float_50 cos_x = cos_t(x);
 
         // Verifica si el coseno es cero o muy cercano a cero
@@ -344,6 +352,10 @@ namespace funtras{
      * @throw std::domain_error para valores x iguales o menores que 0
      */
     cpp_dec_float_50 asin_t(boost::multiprecision::cpp_dec_float_50 x) {
+        // Ajustar el valor de x si está fuera del rango [-1, 1]
+        if (x <= -1) return -funtras::pi_t * divi_t(2); // Si x <= -1, devuelve -pi/2
+        else if (x >= 1) return funtras::pi_t * divi_t(2); // Si x >= 1, devuelve pi/2
+
         cpp_dec_float_50 s_k = x;
         cpp_dec_float_50 s_k1 = s_k + (divi_t(6)* power_t(x,3));
         for (int i = 2; i < max_iter; ++i) {
@@ -382,6 +394,9 @@ namespace funtras{
      * @return aproximacion del angulo que devolveria la funcion arctan
      */
     cpp_dec_float_50 atan_t(boost::multiprecision::cpp_dec_float_50 x){
+        // Ajustar el valor de x si está fuera del rango [-1, 1]
+        if (x <= -1) return -funtras::pi_t * divi_t(2); // Si x <= -1, devuelve -pi/2
+        else if (x >= 1) return funtras::pi_t * divi_t(2); // Si x >= 1, devuelve pi/2
         cpp_dec_float_50 S_k = x;
         cpp_dec_float_50 S_k1 = 0;
 
@@ -453,6 +468,8 @@ namespace funtras{
      * @return angulo correspondiente al valor real x
      */
     cpp_dec_float_50 acos_t(boost::multiprecision::cpp_dec_float_50 x){
+        if (x <= -1) return funtras::pi_t; // Si x <= -1, devuelve pi
+        else if (x >= 1) return 0; // Si x >= 1, devuelve 0
         return (pi_t* divi_t(2)) - asin_t(x);
     }
 
