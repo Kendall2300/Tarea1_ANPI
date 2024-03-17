@@ -14,55 +14,55 @@ if __name__ == "__main__":
     print("Metodo de Bisección\n")
     
     # Llama a la función biseccion dentro del módulo biseccion
-    E, error, k = biseccion.biseccion(-2, 7, caso_1, 0.5, math.pi, 1e-10, 1000)
+    E, error, k = biseccion.biseccion(-10,20, caso_1, 0.5, 7, 1e-10, 1000)
     
     print("\nEl valor de la ecuación de Kepler: ", E)
     print("\nEl error generado es: ", error)
     print("\nLas iteraciones realizadas: ", k)
 
-    tiempo_biseccion = timeit.timeit(lambda: biseccion.biseccion(-2, 7, caso_1, 0.5, math.pi, 1e-10, 1000),
+    tiempo_biseccion = timeit.timeit(lambda: biseccion.biseccion(-10,20, caso_1, 0.5, 7, 1e-10, 1000),
                                      number=1)
     print("\nTiempo de bisección", tiempo_biseccion)
 
 
     print("-----------------------------------------\n")
     print("Método de la falsa posición\n")
-    xk2, error2, k2 = falsa_posicion.falsa_posicion(2,math.pi,caso_1,0.5,math.pi,1e-10,1000)
+    xk2, error2, k2 = falsa_posicion.falsa_posicion(-10,20,caso_1,0.5,7,1e-10,1000)
 
     print("\nEl valor de la ecuación de Kepler: ", xk2)
     print("\nEl error generado es: ", error2)
     print("\nLas iteraciones realizadas: ", k2, "\n")
 
-    tiempo_falsaposicion = timeit.timeit(lambda: falsa_posicion.falsa_posicion(2,math.pi,caso_1,0.5,math.pi,1e-10,1000),
+    tiempo_falsaposicion = timeit.timeit(lambda: falsa_posicion.falsa_posicion(-10,20,caso_1,0.5,7,1e-10,1000),
                                      number=1)
-    print("\nTiempo de bisección", tiempo_falsaposicion)
+    print("\nTiempo de la falsa posición", tiempo_falsaposicion)
 
     print("-----------------------------------------\n")
 
     print("Método de Jarrat\n")
-    xk3, error3, k3 = jarratt_.jarratt(2,caso_2, 0.5, pi, 1e-10, 1000)
+    xk3, error3, k3 = jarratt_.jarratt(2,caso_2, 0.5, 7, 1e-10, 1000)
     
-    print("\nEl valor aproximado: ", xk3)
+    print("\nEl valor de la ecuación de Kepler: ", xk3)
     print("\nEl error es: ", error3)
     print("\nIteraciones realizadas", k3)
 
-    tiempo_jarratt = timeit.timeit(lambda: jarratt_.jarratt(2,caso_2, 0.5, pi, 1e-10, 1000),
+    tiempo_jarratt = timeit.timeit(lambda: jarratt_.jarratt(2,caso_2, 0.5, 7, 1e-10, 1000),
                                      number=1)
-    print("\nTiempo de bisección", tiempo_jarratt)
+    print("\nTiempo de Jarratt", tiempo_jarratt)
 
     print("-----------------------------------------\n")
 
     print("Método de potra-ptak")
 
-    xk4, error4, k4 = potra_ptak.potra_ptak(2,caso_2, 5e-1, pi, 1e-10, 1000)
+    xk4, error4, k4 = potra_ptak.potra_ptak(2,caso_2, 5e-1,7, 1e-10, 1000)
     
-    print("\nEl valor aproximado: ", xk4)
+    print("\nEl valor de la ecuación de Kepler: ", xk4)
     print("\nEl error es: ", error4)
     print("\nIteraciones realizadas", k4)
 
-    tiempo_potakptak = timeit.timeit(lambda: potra_ptak.potra_ptak(2,caso_2, 5e-1, pi, 1e-10, 1000),
+    tiempo_potakptak = timeit.timeit(lambda: potra_ptak.potra_ptak(2,caso_2, 5e-1, 7, 1e-10, 1000),
                                      number=1)
-    print("\nTiempo de bisección", tiempo_potakptak)
+    print("\nTiempo de potra_ptak", tiempo_potakptak)
 
     print("-----------------------------------------\n")
 

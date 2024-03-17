@@ -29,7 +29,7 @@ def potra_ptak(x0, func, e, M, tol, iterMax):
     x = symbols('x')
     fd = diff(f,x)
     
-    if M.evalf() != 0:
+    if M != 0:
         if e >= 0 and e < 1:
             xk = x0
             if fd.subs(x,xk).evalf() != 0:
