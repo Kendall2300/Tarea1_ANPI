@@ -1,6 +1,3 @@
-//
-// Created by kevin on 20/3/2024.
-//
 
 #ifndef CALCULADORA_FUNTRAS_HELPDIALOG_H
 #define CALCULADORA_FUNTRAS_HELPDIALOG_H

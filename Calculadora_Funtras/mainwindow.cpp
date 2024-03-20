@@ -5,6 +5,7 @@
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <iostream>
 #include <iomanip>
+#include "helpdialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -12,6 +13,10 @@ MainWindow::MainWindow(QWidget *parent)
         , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
+    // Conecta la señal clicked() del botón help_Btn al slot openHelpDialog()
+    connect(ui->help_Btn, &QPushButton::clicked, this, &MainWindow::on_help_Btn_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -26,14 +31,19 @@ cpp_dec_float_50 MainWindow::getLineEditNum(){
     return num1;
 }
 
+
+
+//Muestra el resultado de la operación en el espacio designado OuputText
 void MainWindow::writeLabelResult(cpp_dec_float_50 tempResult){
 
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(50) << resultOperacion;
     ui->lb_ResultOp->setText(QString::fromStdString(oss.str()));
+    ui->lb_ResultOp->setFocus();
 
 }
 
+// Permite escrite un número al marcar en la casilla X o Y
 void MainWindow::writeNumber(QString num){
     if(ui->x_Btn->isChecked()){
         QString text = ui->x_Field->text()+num;
@@ -45,6 +55,7 @@ void MainWindow::writeNumber(QString num){
     }
 }
 
+// Boton de la funcion de senh_t(x)
 void MainWindow::on_senh_Btn_clicked()
 {
 
@@ -56,7 +67,7 @@ void MainWindow::on_senh_Btn_clicked()
 
 }
 
-
+// Boton de la funcion de cosh_t(x)
 void MainWindow::on_cosh_Btn_clicked()
 {
     getLineEditNum();
@@ -67,7 +78,7 @@ void MainWindow::on_cosh_Btn_clicked()
 
 }
 
-
+// Boton de la funcion de tanh_t(x)
 void MainWindow::on_tanh_Btn_clicked()
 {
     getLineEditNum();
@@ -77,7 +88,7 @@ void MainWindow::on_tanh_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Botón de la funcion de asen_t(x)
 void MainWindow::on_asen_Btn_clicked()
 {
     getLineEditNum();
@@ -92,7 +103,7 @@ void MainWindow::on_asen_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de acos_t(x)
 void MainWindow::on_acos_Btn_clicked()
 {
     getLineEditNum();
@@ -105,7 +116,7 @@ void MainWindow::on_acos_Btn_clicked()
     }
 }
 
-
+// Boton de la funcion de atan_t(x)
 void MainWindow::on_atan_Btn_clicked()
 {
     getLineEditNum();
@@ -115,7 +126,7 @@ void MainWindow::on_atan_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de sec_t(x)
 void MainWindow::on_sec_Btn_clicked()
 {
     getLineEditNum();
@@ -125,7 +136,7 @@ void MainWindow::on_sec_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de csc_t(x)
 void MainWindow::on_csc_Btn_clicked()
 {
     getLineEditNum();
@@ -135,7 +146,7 @@ void MainWindow::on_csc_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de cot_t(x)
 void MainWindow::on_cot_Btn_clicked()
 {
     getLineEditNum();
@@ -145,7 +156,7 @@ void MainWindow::on_cot_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de sen_t(x)
 void MainWindow::on_sen_Btn_clicked()
 {
     getLineEditNum();
@@ -155,7 +166,7 @@ void MainWindow::on_sen_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de cos_t(x)
 void MainWindow::on_cos_Btn_clicked()
 {
     getLineEditNum();
@@ -165,7 +176,7 @@ void MainWindow::on_cos_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de tan_t(x)
 void MainWindow::on_tan_Btn_clicked()
 {
     getLineEditNum();
@@ -175,7 +186,7 @@ void MainWindow::on_tan_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de ln_t(x)
 void MainWindow::on_ln_Btn_clicked()
 {
     getLineEditNum();
@@ -189,7 +200,7 @@ void MainWindow::on_ln_Btn_clicked()
     }
 }
 
-
+// Boton de la funcion de log10_t(x)
 void MainWindow::on_log10_Btn_clicked()
 {
     getLineEditNum();
@@ -199,7 +210,7 @@ void MainWindow::on_log10_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de logy_t(x)
 void MainWindow::on_logy_Btn_clicked()
 {
     getLineEditNum();
@@ -213,7 +224,7 @@ void MainWindow::on_logy_Btn_clicked()
     }
 }
 
-
+// Boton de la funcion de inv_t(x)
 void MainWindow::on_invx_Btn_clicked()
 {
     getLineEditNum();
@@ -230,7 +241,7 @@ void MainWindow::on_invx_Btn_clicked()
     }
 }
 
-
+// Boton de la funcion de sqrt_t(x)
 void MainWindow::on_sqrtx_Btn_clicked()
 {
     getLineEditNum();
@@ -245,7 +256,7 @@ void MainWindow::on_sqrtx_Btn_clicked()
     }
 }
 
-
+// Boton de la funcion de yrt_t(x)
 void MainWindow::on_yrtx_Btn_clicked()
 {
     getLineEditNum();
@@ -260,7 +271,7 @@ void MainWindow::on_yrtx_Btn_clicked()
 
 }
 
-
+// Boton de la funcion de exp_t(x)
 void MainWindow::on_exp_Btn_clicked()
 {
     getLineEditNum();
@@ -270,7 +281,7 @@ void MainWindow::on_exp_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de xpow_t(y)
 void MainWindow::on_xpowy_Btn_clicked()
 {
     getLineEditNum();
@@ -280,7 +291,7 @@ void MainWindow::on_xpowy_Btn_clicked()
     writeLabelResult(resultOperacion);
 }
 
-
+// Boton de la funcion de fact_t(x)
 void MainWindow::on_xfact_Btn_clicked()
 {
 
@@ -299,14 +310,14 @@ void MainWindow::on_xfact_Btn_clicked()
 
 }
 
-
+// Boton de la funcion de eliminar números de las casillas X y Y
 void MainWindow::on_pushButton_clicked()
 {
     ui->x_Field->clear();
     ui->y_Field->clear();
 }
 
-
+// Boton de la funcion de calcular operación TestFuntras
 void MainWindow::on_pushButton_2_clicked()
 {
     getLineEditNum();
@@ -316,6 +327,7 @@ void MainWindow::on_pushButton_2_clicked()
     writeLabelResult(resultOperacion);
 }
 
+// Boton de la funcion de pi
 void MainWindow::on_pi_Btn_clicked()
 {
     std::ostringstream oss;
@@ -324,78 +336,79 @@ void MainWindow::on_pi_Btn_clicked()
     writeNumber(QString::fromStdString(oss.str()));
 }
 
+// Boton del numero 0
 void MainWindow::on_zero_Btn_clicked()
 {
     writeNumber(ui->zero_Btn->text());
 }
 
-
+// Boton del numero 1
 void MainWindow::on_one_Btn_clicked()
 {
     writeNumber(ui->one_Btn->text());
 }
 
-
+// Boton del numero 2
 void MainWindow::on_two_Btn_clicked()
 {
     writeNumber(ui->two_Btn->text());
 }
 
-
+// Boton del numero 3
 void MainWindow::on_three_Btn_clicked()
 {
     writeNumber(ui->three_Btn->text());
 }
 
-
+// Boton del numero 4
 void MainWindow::on_four_Btn_clicked()
 {
     writeNumber(ui->four_Btn->text());
 }
 
-
+// Boton del numero 5
 void MainWindow::on_five_Btn_clicked()
 {
     writeNumber(ui->five_Btn->text());
 }
 
-
+// Boton del numero 6
 void MainWindow::on_six_Btn_clicked()
 {
     writeNumber(ui->six_Btn->text());
 }
 
-
+// Boton del numero 7
 void MainWindow::on_seven_Btn_clicked()
 {
     writeNumber(ui->seven_Btn->text());
 }
 
-
+// Boton del numero 8
 void MainWindow::on_eight_Btn_clicked()
 {
     writeNumber(ui->eight_Btn->text());
 }
 
-
+// Boton del numero 9
 void MainWindow::on_nine_Btn_clicked()
 {
     writeNumber(ui->nine_Btn->text());
 }
 
-
+// Boton del punto
 void MainWindow::on_dot_Btn_clicked()
 {
     writeNumber(ui->dot_Btn->text());
 }
 
-
+// Boton del negativo( - )
 void MainWindow::on_negative_Btn_clicked()
 {
     writeNumber(ui->negative_Btn->text());
 }
 
-
+// Boton de pi medios
 void MainWindow::on_pi_half_Btn_clicked()
 {
     std::ostringstream oss;
@@ -404,3 +417,14 @@ void MainWindow::on_pi_half_Btn_clicked()
     writeNumber(QString::fromStdString(oss.str()));
 }
 
+//boton de ayuda
+void MainWindow::on_help_Btn_clicked() {
+    // Crea una instancia del diálogo de ayuda
+    helpdialog *helpDialog = new helpdialog(this);
+
+    // Muestra el diálogo de ayuda
+    helpDialog->exec();
+
+    // Libera la memoria del diálogo después de que se cierre
+    delete helpDialog;
+}

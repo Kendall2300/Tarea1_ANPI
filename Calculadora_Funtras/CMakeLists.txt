@@ -19,6 +19,10 @@ add_executable(Calculadora_Funtras
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        helpdialog.cpp
+        helpdialog.h
+        helpdialog.ui
+        helpdialog.h
 )
 
 
@@ -26,7 +30,6 @@ add_executable(Calculadora_Funtras
 
 target_link_libraries(Calculadora_Funtras PUBLIC boost_multiprecision)
 target_link_libraries(Calculadora_Funtras PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
 
 
 install(TARGETS Calculadora_Funtras

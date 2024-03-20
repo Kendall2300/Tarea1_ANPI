@@ -13,10 +13,11 @@ using namespace boost::multiprecision;
 
 namespace funtras{
     cpp_dec_float_50 pi_t=cpp_dec_float_50("3.14159265358979323846");
+
     /**
-     * Funcion factorial de x
-     * @param: x numero al que calcular el factorial
-     * @return: factorial de x
+     * @brief Función factorial de x
+     * @param x número al que calcular el factorial
+     * @return factorial de x
      */
     cpp_dec_float_50 fact_t(int x) {
 
@@ -35,15 +36,14 @@ namespace funtras{
 
     }
 
-    // declaracion
+    // Instanciación de power_t
     cpp_dec_float_50 power_t(cpp_dec_float_50 x, cpp_dec_float_50 y);
 
     /**
-     * Funcion valor inicial de power
-     * Esta funcion es recursiva
-     * @param: a
-     * @return: resultado de la division inicial
-     */
+      * @brief Función valor inicial de power
+      * @param a valor de entrada
+      * @return resultado de la división inicial
+      */
     cpp_dec_float_50 divi_t_inital_value(cpp_dec_float_50 a) {
         cpp_dec_float_50  eps = 2.2204*pow(10,-16);
         if(a>=fact_t(100)){
@@ -62,10 +62,10 @@ namespace funtras{
     }
 
     /**
-     * Funcion division 1/x
-     * @param: x numero de tipo cpp_dec_float_50 al que calcular el inverso
-     * @return: Inverso de x
-     */
+    * @brief Función división 1/x
+    * @param x número al que calcular el inverso
+    * @return inverso de x: x_k
+    */
     cpp_dec_float_50 divi_t(cpp_dec_float_50 x) {
         cpp_dec_float_50 x_k = divi_t_inital_value(abs(x));
         cpp_dec_float_50 x_k1 = 0;
@@ -85,10 +85,12 @@ namespace funtras{
 
 
     boost::multiprecision::cpp_dec_float_50 root_t(boost::multiprecision::cpp_dec_float_50 x, boost::multiprecision::cpp_dec_float_50 y);
+
     /**
-     * Funcion potencia x^y
-     * @param: x, y
-     * @return: result (resultado de la potencia x^y)
+     * @brief Función potencia x^y
+     * @param x base de la potencia
+     * @param y exponente de la potencia
+     * @return resultado de la potencia x^y
      */
     cpp_dec_float_50 power_t(cpp_dec_float_50 x, cpp_dec_float_50 y) {
 
@@ -128,10 +130,10 @@ namespace funtras{
 
 
     /**
-     * Funcion seno(x)
-     * @param x el valor del angulo
-     * @return aproximacion del resultado de seno(x)
-      */
+     * @brief Función seno de x: sen(x)
+     * @param x valor del ángulo
+     * @return aproximación del resultado de seno(x): S_k1
+     */
     boost::multiprecision::cpp_dec_float_50 sin_t(boost::multiprecision::cpp_dec_float_50 x) {
         x = fmod(x, 2 * funtras::pi_t); // Ajustar el ángulo dentro del rango 0 a 2pi
         if (x < 0) x += 2 * funtras::pi_t; // Ajustar para manejar ángulos negativos
@@ -154,9 +156,9 @@ namespace funtras{
     }
 
     /**
-     * Funcion seno hiperbolico de a: senh(a)
-     * @param x el valor del angulo
-     * @return aproximacion del resultado de la funcion
+     * @brief Funcion seno hiperbolico de a: senh(a)
+     * @param a el valor del angulo
+     * @return aproximacion del resultado de senh(a): S_k1
      */
     cpp_dec_float_50 sinh_t(cpp_dec_float_50 a) {
         cpp_dec_float_50 S_k = a;
@@ -172,9 +174,9 @@ namespace funtras{
     }
 
     /**
-      * Funcion coseno de x: cos(x)
+      * @brief Funcion coseno de x: cos(x)
       * @param x el valor del angulo
-      * @return aproximacion de la funcion cos(x)
+      * @return aproximacion de la funcion cos(x): S_k1
         */
     boost::multiprecision::cpp_dec_float_50 cos_t(boost::multiprecision::cpp_dec_float_50 x) {
         x = fmod(x, 2 * funtras::pi_t); // Ajustar el ángulo dentro del rango 0 a 2pi
@@ -196,9 +198,9 @@ namespace funtras{
 
 
     /**
-     * Funcion coseno hiperbolico de a : cosh(a)
-     * @param x el valor del angulo
-     * @return aproximacion de la funcion cosh(a)
+     * @brief Funcion cosecante hiperbolica de a: cosh(a)
+     * @param a el valor del angulo
+     * @return aproximacion de la funcion cosh(a): S_k1
      */
     cpp_dec_float_50 cosh_t(cpp_dec_float_50 a) {
         cpp_dec_float_50 S_k = 1;
@@ -214,7 +216,7 @@ namespace funtras{
     }
 
     /***
-    * Funcion tangente hiperbolica de x : tanh(x)
+    * @brief Funcion tangente hiperbolica de x : tanh(x)
     * @param x el valor del angulo
     * @return aproximacion de la funcion tanh(x)
     */
@@ -223,7 +225,7 @@ namespace funtras{
     }
 
     /***
-     * Funcion secante de a : sec(a)
+     * @brief Funcion secante de a : sec(a)
      * @param x el valor del angulo
      * @return aproximacion de la funcion sec(a)
      */
@@ -232,7 +234,7 @@ namespace funtras{
 
         // Verifica si el coseno es cero o muy cercano a cero
         if (abs(cos_a) < tol) {
-            throw std::domain_error("El ángulo produce una secante indefinida.");
+            throw std::domain_error("El ángulo produce una secante indefinida, considere otro valor de x");
         }
 
         // Calcula el recíproco del coseno
@@ -240,11 +242,11 @@ namespace funtras{
     }
 
 
-    // declaracion
+    // Instanciación de tan_t
     cpp_dec_float_50 tan_t(cpp_dec_float_50 a);
 
     /**
-     * Funcion cotangente de a : cot(a)
+     * @brief Funcion cotangente de a : cot(a)
      * @param x el valor del angulo
      * @return aproximacion de la funcion cot(a)
      */
@@ -253,7 +255,7 @@ namespace funtras{
     }
 
     /**
-     * Funcion tangente de x : tan(x)
+     * @brief Funcion tangente de x : tan(x)
      * @param: x el valor del angulo del que se obtendra la tangente
      * @return: la tangente de x
      */
@@ -268,16 +270,16 @@ namespace funtras{
         }
 
         // Calcula la tangente
-        return sin_t(x) * divi_t(cos_x);
+        return sin_t(x) * divi_t(cos_t(x));
     }
 
 
 
     /**
-     * Funcion logaritmo natural de x : ln(x)
+     * @brief Funcion logaritmo natural de x : ln(x)
      * @param x valor del que se obtendra el logaritmo
      * @return logaritmo natural de x
-     * @throw std::domain_error para valores x iguales o menores que 0
+     * @throw std::domain_error para x mayor o igual a cero
      */
     cpp_dec_float_50 ln_t(boost::multiprecision::cpp_dec_float_50 x) {
         if (x <= 0) {
@@ -297,11 +299,11 @@ namespace funtras{
     }
 
     /**
-     * Funcion raiz y-esima : x^(1/y)
+     * @brief Funcion raiz y-esima : x^(1/y)
      * @param x el valor al que se le calculara la raiz
      * @param y el grado de la raiz
-     * @throw std::domain_error para valor x menores que 0
-     * @throw std::domain_error para y pares con x negativos
+     * @throw std::domain_error para x menor a cero
+     * @throw std::domain_error para y pares con x negativo
      */
     boost::multiprecision::cpp_dec_float_50
     root_t(boost::multiprecision::cpp_dec_float_50 x, boost::multiprecision::cpp_dec_float_50 y) {
@@ -317,7 +319,7 @@ namespace funtras{
                 return x;
             }
             if (y.convert_to<int>() % 2 == 0 && x < 0) {
-                throw std::domain_error(" x debe ser mayor o igual a 0");
+                throw std::domain_error("No cumple: x debe ser mayor a cero o igual a cero");
             }
             boost::multiprecision::cpp_dec_float_50 S_k = x * 0.5;
             boost::multiprecision::cpp_dec_float_50 S_k1 =
@@ -336,17 +338,18 @@ namespace funtras{
     }
 
     /**
-     * Funcion raiz cuadrada de x : x^(1/2)
+     * @brief Funcion raiz cuadrada de x : x^(1/2)
      * @param x
      * @return aproximacion de la sqrt(x)
      */
+
     boost::multiprecision::cpp_dec_float_50 sqrt_t(boost::multiprecision::cpp_dec_float_50 x) {
         return root_t(x, 2); // se invoca a una funcion existente con indice 2
     }
 
 
     /**
-     * Funcion arcoseno de x : arcsen(x)
+     * @brief Funcion arcoseno de x : arcsen(x)
      * @param x valor del angulo del que se le calculara el arcoseno
      * @return aproximacion del arcoseno de x (un angulo)
      * @throw std::domain_error para valores x iguales o menores que 0
@@ -371,7 +374,7 @@ namespace funtras{
 
 
     /**
-     * Funcion exponencial e^a
+     * @brief Funcion exponencial e^a
      * @param a exponente para e
      * @return aproximacion de la funcion exponencial
      */
@@ -389,55 +392,55 @@ namespace funtras{
     }
 
     /**
-     * Funcion arcotangente de x : arctan(x)
+     * @brief Funcion arcotangente de x : arctan(x)
      * @param x valor por calcularle el atan_t
      * @return aproximacion del angulo que devolveria la funcion arctan
      */
     cpp_dec_float_50 atan_t(boost::multiprecision::cpp_dec_float_50 x){
-        // Ajustar el valor de x si está fuera del rango [-1, 1]
-        if (x <= -1) return -funtras::pi_t * divi_t(2); // Si x <= -1, devuelve -pi/2
-        else if (x >= 1) return funtras::pi_t * divi_t(2); // Si x >= 1, devuelve pi/2
         cpp_dec_float_50 S_k = x;
         cpp_dec_float_50 S_k1 = 0;
 
-        if(x>=-1 and x<=1){
-            //S_k1 = -1* power_t(x,3)* divi_t(3);
+        if(x>=-1 && x<=1){
             for(int n = 0; n <= max_iter;n++){
-                S_k1.assign(power_t(-1,n) * power_t(x,2*n+1) * divi_t(2*n+1));
-                if(abs(S_k1 - S_k) < tol){
-                    return S_k;
-                }
+                S_k1.assign(power_t(-1,n) * (power_t(x,2*n+1) * divi_t(2*n+1)));
                 S_k.assign(S_k1);
+                if(abs(S_k1 - S_k) < tol){
+                    return S_k1;
+                }
+
+
             }
+            return S_k1;
         }
         else if(x>1){
             for(int n = 0; n <= max_iter;n++){
                 S_k1.assign(pi_t*divi_t(2)-(power_t(-1,n)*divi_t((2*n+1)*power_t(x,2*n+1))));
-                if(abs(S_k1 - S_k)<tol){
-                    return S_k;
-                }
                 S_k.assign(S_k1);
+                if(abs(S_k1 - S_k)<tol){
+                    return S_k1;
+                }
             }
+            return S_k1;
         }else{ //x<1
             for(int n =0; n<=max_iter;n++){
                 S_k1.assign(-(pi_t*divi_t(2))-(power_t(-1,n)*divi_t((2*n+1)*power_t(x,2*n+1))));
                 if(abs(S_k1-S_k)<tol){
-                    return S_k;
+                    return S_k1;
                 }
                 S_k.assign(S_k1);
             }
+            return S_k1;
+
         }
-        return S_k;
     }
 
 
 
     /**
-     * Funcion logaritmo en cualquier base de x
-     * Utiliza cambio de base
+     * @brief Funcion logaritmo en cualquier base de x
      * @param x
      * @param y
-     * @return aproximacion del logaritmo solicitado
+     * @return aproximacion del logaritmo
      */
     cpp_dec_float_50 log_t(boost::multiprecision::cpp_dec_float_50 x, boost::multiprecision::cpp_dec_float_50 y){
         if(y==1)
@@ -454,7 +457,7 @@ namespace funtras{
     }
 
     /**
-     * Funcion cosecante de x : csc(x)
+     * @brief Funcion cosecante de x : csc(x)
      * @param x angulo para la funcion
      * @return aproximacion del resultado de la funcion
      */
@@ -463,7 +466,7 @@ namespace funtras{
     }
 
     /**
-     * Funcion arcocoseno de x : arccos(x)
+     * @brief Funcion arcocoseno de x : arccos(x)
      * @param x valor al cual calcularle el angulo
      * @return angulo correspondiente al valor real x
      */

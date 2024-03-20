@@ -25,6 +25,7 @@ Q_OBJECT
     void writeLabelResult(cpp_dec_float_50 tempResult);
     void writeNumber(QString num);
 
+
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
@@ -103,6 +104,9 @@ private slots:
     void on_negative_Btn_clicked();
 
     void on_pi_half_Btn_clicked();
+
+    void on_help_Btn_clicked();
+
 
 private:
     Ui::MainWindow *ui{};
