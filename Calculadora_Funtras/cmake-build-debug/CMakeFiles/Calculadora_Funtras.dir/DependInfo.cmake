@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/Calculadora_Funtras_autogen/mocs_compilation.cpp" "CMakeFiles/Calculadora_Funtras.dir/Calculadora_Funtras_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/Calculadora_Funtras.dir/Calculadora_Funtras_autogen/mocs_compilation.cpp.obj.d"
+  "C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.cpp" "CMakeFiles/Calculadora_Funtras.dir/helpdialog.cpp.obj" "gcc" "CMakeFiles/Calculadora_Funtras.dir/helpdialog.cpp.obj.d"
   "C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/main.cpp" "CMakeFiles/Calculadora_Funtras.dir/main.cpp.obj" "gcc" "CMakeFiles/Calculadora_Funtras.dir/main.cpp.obj.d"
   "C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/mainwindow.cpp" "CMakeFiles/Calculadora_Funtras.dir/mainwindow.cpp.obj" "gcc" "CMakeFiles/Calculadora_Funtras.dir/mainwindow.cpp.obj.d"
   )

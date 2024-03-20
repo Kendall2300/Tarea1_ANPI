@@ -262,6 +262,12 @@
 			null
 		],
 		[
+			"C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.h",
+			"MU",
+			"EWIEGA46WW/moc_helpdialog.cpp",
+			null
+		],
+		[
 			"C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -342,6 +348,11 @@
 	"SETTINGS_FILE" : "C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-release/CMakeFiles/Calculadora_Funtras_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.cpp",
+			"MU",
+			null
+		],
 		[
 			"C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/main.cpp",
 			"MU",

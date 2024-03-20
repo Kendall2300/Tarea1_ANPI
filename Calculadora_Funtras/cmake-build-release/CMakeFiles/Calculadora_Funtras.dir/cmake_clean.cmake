@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "Calculadora_Funtras_autogen"
   "CMakeFiles/Calculadora_Funtras.dir/Calculadora_Funtras_autogen/mocs_compilation.cpp.obj"
   "CMakeFiles/Calculadora_Funtras.dir/Calculadora_Funtras_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/Calculadora_Funtras.dir/helpdialog.cpp.obj"
+  "CMakeFiles/Calculadora_Funtras.dir/helpdialog.cpp.obj.d"
   "CMakeFiles/Calculadora_Funtras.dir/main.cpp.obj"
   "CMakeFiles/Calculadora_Funtras.dir/main.cpp.obj.d"
   "CMakeFiles/Calculadora_Funtras.dir/mainwindow.cpp.obj"

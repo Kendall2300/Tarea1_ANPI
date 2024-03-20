@@ -223,6 +223,30 @@ Calculadora_Funtras_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calculadora_Funtras.dir\build.make CMakeFiles/Calculadora_Funtras.dir/Calculadora_Funtras_autogen/mocs_compilation.cpp.s
 .PHONY : Calculadora_Funtras_autogen/mocs_compilation.cpp.s
 
+helpdialog.obj: helpdialog.cpp.obj
+.PHONY : helpdialog.obj
+
+# target to build an object file
+helpdialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calculadora_Funtras.dir\build.make CMakeFiles/Calculadora_Funtras.dir/helpdialog.cpp.obj
+.PHONY : helpdialog.cpp.obj
+
+helpdialog.i: helpdialog.cpp.i
+.PHONY : helpdialog.i
+
+# target to preprocess a source file
+helpdialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calculadora_Funtras.dir\build.make CMakeFiles/Calculadora_Funtras.dir/helpdialog.cpp.i
+.PHONY : helpdialog.cpp.i
+
+helpdialog.s: helpdialog.cpp.s
+.PHONY : helpdialog.s
+
+# target to generate assembly for a file
+helpdialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calculadora_Funtras.dir\build.make CMakeFiles/Calculadora_Funtras.dir/helpdialog.cpp.s
+.PHONY : helpdialog.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -289,6 +313,9 @@ help:
 	@echo ... Calculadora_Funtras_autogen/mocs_compilation.obj
 	@echo ... Calculadora_Funtras_autogen/mocs_compilation.i
 	@echo ... Calculadora_Funtras_autogen/mocs_compilation.s
+	@echo ... helpdialog.obj
+	@echo ... helpdialog.i
+	@echo ... helpdialog.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

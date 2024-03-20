@@ -172,6 +172,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-release/Calculadora_Funtras_autogen/include/ui_helpdialog.h">
+			<Option target="Calculadora_Funtras"/>
+		</Unit>
 		<Unit filename="C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-release/Calculadora_Funtras_autogen/include/ui_mainwindow.h">
 			<Option target="Calculadora_Funtras"/>
 		</Unit>
@@ -179,6 +182,15 @@
 			<Option target="Calculadora_Funtras"/>
 		</Unit>
 		<Unit filename="C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/funtras.h">
+			<Option target="Calculadora_Funtras"/>
+		</Unit>
+		<Unit filename="C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.cpp">
+			<Option target="Calculadora_Funtras"/>
+		</Unit>
+		<Unit filename="C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.h">
+			<Option target="Calculadora_Funtras"/>
+		</Unit>
+		<Unit filename="C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.ui">
 			<Option target="Calculadora_Funtras"/>
 		</Unit>
 		<Unit filename="C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/main.cpp">

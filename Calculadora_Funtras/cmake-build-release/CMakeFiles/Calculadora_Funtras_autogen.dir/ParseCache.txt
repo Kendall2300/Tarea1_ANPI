@@ -380,7 +380,7 @@ C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/mainwindow.h
  mdp:C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.6.2/mingw_64/include/QtWidgets/qwidget.h
- mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/Calculadora_Funtras_autogen/moc_predefs.h
+ mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-release/Calculadora_Funtras_autogen/moc_predefs.h
  mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/mainwindow.h
  mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/multiprecision-Boost_1_81_0/include/boost/multiprecision/cpp_dec_float.hpp
  mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/multiprecision-Boost_1_81_0/include/boost/multiprecision/detail/assert.hpp
@@ -420,9 +420,6 @@ C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/mainwindow.h
  mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/multiprecision-Boost_1_81_0/include/boost/multiprecision/traits/transcendental_reduction_type.hpp
  uic:ui_mainwindow.h
 C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/funtras.h
-C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/main.cpp
-C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/mainwindow.cpp
- uic:./ui_mainwindow.h
 C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.h
  mmc:Q_OBJECT
  mdp:C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
@@ -775,7 +772,10 @@ C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.h
  mdp:C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.6.2/mingw_64/include/QtWidgets/qwidget.h
- mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug/Calculadora_Funtras_autogen/moc_predefs.h
+ mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-release/Calculadora_Funtras_autogen/moc_predefs.h
  mdp:C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.h
 C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/helpdialog.cpp
  uic:ui_helpdialog.h
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/main.cpp
+C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/mainwindow.cpp
+ uic:./ui_mainwindow.h
