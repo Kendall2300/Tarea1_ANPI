@@ -10,6 +10,6 @@ CMake Deprecation Warning:
 
 -- Boost.Multiprecision: standalone mode ON
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
--- Configuring done (1.4s)
--- Generating done (0.2s)
+-- Configuring done (0.5s)
+-- Generating done (0.1s)
 -- Build files have been written to: C:/Users/kevin/OneDrive/Escritorio/Tarea1_ANPI/Calculadora_Funtras/cmake-build-debug
